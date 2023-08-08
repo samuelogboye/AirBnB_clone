@@ -39,6 +39,6 @@ All the classes are handled by the `Storage` engine in the `FileStorage` Class.
 * [pycodestyle (version 2.7.*)](https://pypi.org/project/pycodestyle/)
 * [PEP8](https://pep8.org/)
 
-All the development and testing was runned over an operating system Ubuntu 20.04 LTS using programming language Python 3.8.3. The editors used were VIM 8.1.2269, VSCode 1.6.1 and Atom 1.58.0 . Control version using Git 2.25.1.
+All the development and testing was runned over an operating system Ubuntu 20.04 LTS using programming language Python 3.8.3. The editors used were GNU Emacs 26.3 VIM 8.1.2269, and VSCode 1.6.1. Control version using Git 2.25.1.
 
 ## 0x03 Installation
