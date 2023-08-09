@@ -1,10 +1,14 @@
 #!/usr/bin/python3
 """This is a Module for FileStorage class"""
-import datetime
 import json
+from models.base_model import BaseModel
 
 class FileStorage:
-    """Class for story=ing and retrieving data"""
+    """Represent an abstracted storage engine.
+    Attributes:
+        __file_path (str): The name of the file to save objects to.
+        __objects (dict): A dictionary of instantiated objects.
+    """
     __file_path = "file.json"
     __objects = {}
     
@@ -25,7 +29,7 @@ class FileStorage:
             json.dump(obj_dict, file)
     
     def reload(self):
-        """Deserialize JSON file in path __file_path to __objects if it exists"""
+        """Deserialize the JSON file __file_path to __objects, if it exists."""
         try:
             with open(FileStorage.__file_path) as file:
                 obj_dict = json.load(file)
@@ -35,4 +39,5 @@ class FileStorage:
                     self.new(eval(cls_name)(**item))
         except FileNotFoundError:
             return
+
     
