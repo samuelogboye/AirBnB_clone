@@ -26,21 +26,22 @@ class HBNBCommand(cmd.Cmd):
     def strip_args(self, line):
         """stripper() is used to extract arguments inside parentheses"""
         #shlex module is used to handle whitespaces and splitting of arguments
-        newstring = line[line.find("(")+1:line.rfind(")")] # extract input btw opening&closing (), stores in newstring
-        newstring = shlex.shlex(newstring, posix=True) # tokenize the args using shlex module
+        newstring = line[line.find("(")+1:line.rfind(")")]
+        newstring = shlex.shlex(newstring, posix=True)
         newstring.whitespace += ',' # use commas as seperators for tokenization
         newstring.whitespace_split = True
         return list(newstring)
-    # whitespace and whitespace_split are attributes of the lexer object created with shlex module
+    # whitespace and whitespace_split are attributes
     def dict_strip(self, line):
-        """extract dictionary from the input string, looks for substring enclosed in curly braces"""
+        """extract dictionary from the input string,
+        substring enclosed in curly braces"""
         newstring = line[line.find("(")+1:line.rfind(")")]
         try:
             newdict = newstring[newstring.find("{")+1:newstring.rfind("}")]
             return eval("{" + newdict + "}")
         except:
             return None
-# default is used to handle custom functions 
+# default is used to handle custom functions
     def default(self, line):
         """defaults"""
         subArgs = self.strip_args(line)
@@ -80,12 +81,12 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, line):
         """Quit command to exit the program"""
         return True
-    
+
     def do_EOF(self, line):
         """Captures Control+D by the User"""
-        print() # to print a newline btw the previous command output and the console prompt
+        print()
         return True
-    
+
     def emptyline(self):
         """An empty line+ENter should not execute anything"""
         pass
@@ -102,7 +103,7 @@ class HBNBCommand(cmd.Cmd):
         new_obj = eval(class_name)()
         print(new_obj.id)
         new_obj.save()
-    # show command, Prints the string representation of an instance based on the class name and id
+
     def do_show(self, args):
         """string representation of objects"""
         if not args:
