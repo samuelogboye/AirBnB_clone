@@ -19,23 +19,24 @@ class FileStorage:
     """
     __file_path = "file.json"
     __objects = {}
-    
+
     def all(self):
         """Returns the dictionary __objects"""
         return FileStorage.__objects
-    
+
     def new(self, obj):
         """Sets in __objects with key <obj class name>.id"""
         key = "{}.{}".format(type(obj).__name__, obj.id)
         FileStorage.__objects[key] = obj
-    
+
     def save(self):
         """Serialize __objects to the JSON file in path __file_path"""
         to_hold_dict = FileStorage.__objects
-        obj_dict = {obj: to_hold_dict[obj].to_dict() for obj in to_hold_dict.keys()}    
+        obj_dict = {
+            obj: to_hold_dict[obj].to_dict() for obj in to_hold_dict.keys()}
         with open(FileStorage.__file_path, "w", encoding="utf-8") as file:
             json.dump(obj_dict, file)
-    
+
     def reload(self):
         """Deserialize the JSON file __file_path to __objects, if it exists."""
         try:
@@ -47,7 +48,7 @@ class FileStorage:
                     self.new(eval(cls_name)(**item))
         except FileNotFoundError:
             return
-    
+
     def classes(self):
         """Returns a dictionary of valid classes and their references"""
         from models.base_model import BaseModel
@@ -66,7 +67,7 @@ class FileStorage:
                    "Place": Place,
                    "Review": Review}
         return classes
-     
+
     def attributes(self):
         """Returns the valid attributes and their types for classname"""
         attributes = {

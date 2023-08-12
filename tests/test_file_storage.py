@@ -3,6 +3,7 @@ from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 import os
 
+
 class TestFileStorage(unittest.TestCase):
 
     def setUp(self):
@@ -13,7 +14,7 @@ class TestFileStorage(unittest.TestCase):
             os.remove(FileStorage._FileStorage__file_path)
         except FileNotFoundError:
             pass
-    
+
     def test_new(self):
         obj = BaseModel()
         key = "{}.{}".format(type(obj).__name__, obj.id)
@@ -40,8 +41,8 @@ class TestFileStorage(unittest.TestCase):
         self.assertTrue(key in new_storage._FileStorage__objects)
 
     def test_reload_non_existent_file(self):
-        self.storage.reload()  # Should not raise any errors
-    
+        self.storage.reload()
+
     def test_reload_invalid_data(self):
         with open(FileStorage._FileStorage__file_path, "w") as file:
             file.write("invalid json")

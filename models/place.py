@@ -3,6 +3,7 @@
 
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """The class that defines User object inherited from Basemodel"""
     city_id = ""

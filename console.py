@@ -85,10 +85,10 @@ class HBNBCommand(cmd.Cmd):
                 self.do_update(key)
         else:
             print("*** Unknown syntax: {}".format(line))
-            return    
+            return
         """
-        self._precmd(line)    
-    
+        self._precmd(line)
+
     def _precmd(self, line):
         """Intercepts commands to test for class.syntax()"""
         match = re.search(r"^(\w*)\.(\w+)(?:\(([^)]*)\))$", line)
@@ -119,7 +119,7 @@ class HBNBCommand(cmd.Cmd):
         command = method + " " + classname + " " + uid + " " + attr_and_value
         self.onecmd(command)
         return command
-    
+
     def update_dict(self, classname, uid, s_dict):
         """Helper method for update() with a dictionary."""
         s = s_dict.replace("'", '"')
@@ -141,7 +141,7 @@ class HBNBCommand(cmd.Cmd):
                         value = attributes[attribute](value)
                     setattr(storage.all()[key], attribute, value)
                 storage.all()[key].save()
-    
+
     def do_count(self, line):
         """Counts the instances of a class.
         """
@@ -155,7 +155,7 @@ class HBNBCommand(cmd.Cmd):
                 k for k in storage.all() if k.startswith(
                     words[0] + '.')]
             print(len(matches))
-    
+
     def do_quit(self, line):
         """Quit command to exit the program"""
         return True
@@ -199,46 +199,46 @@ class HBNBCommand(cmd.Cmd):
             print("** no instance found **")
         else:
             print(storage.all()[key_value])
-    
+
     def do_destroy(self, args):
-          """deletes an instance based on the class name and id"""
-          if not args:
-              print("** class name missing **")
-              return
-          strings = args.split()
-          if strings[0] not in HBNBCommand.classes:
-              print("** class doesn't exist **")
-              return
-          if len(strings) == 1:
-              print("** instance id missing **")
-              return
-          key_value = strings[0] + '.' + strings[1]
-          if key_value not in storage.all().keys():
-              print("** no instance found **")
-              return
-          del storage.all()[key_value]
-          storage.save()
+        """deletes an instance based on the class name and id"""
+        if not args:
+            print("** class name missing **")
+            return
+        strings = args.split()
+        if strings[0] not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+            return
+        if len(strings) == 1:
+            print("** instance id missing **")
+            return
+        key_value = strings[0] + '.' + strings[1]
+        if key_value not in storage.all().keys():
+            print("** no instance found **")
+            return
+        del storage.all()[key_value]
+        storage.save()
 
     def do_all(self, line):
         """Prints all instances based on the class name or
         all instances if no class name is provided."""
-    
+
         if not line:
             all_instances = [str(obj) for obj in storage.all().values()]
             print(all_instances)
             return
-    
+
         class_name = line.split()[0]
         if class_name not in HBNBCommand.classes:
             print("** class doesn't exist **")
             return
-    
+
         class_instances = [
             str(obj)
             for obj in storage.all().values()
             if type(obj).__name__ == class_name]
         print(class_instances)
-    
+
     def do_update(self, args):
         """updates an object"""
         if not args:
@@ -268,8 +268,7 @@ class HBNBCommand(cmd.Cmd):
             setattr(storage.all()[key_value], strings[2], eval(strings[3]))
         except ValueError:
             setattr(storage.all()[key_value], strings[2], strings[3])
-    
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
-    

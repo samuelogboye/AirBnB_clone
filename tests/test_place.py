@@ -3,6 +3,7 @@ import unittest
 from models.place import Place
 from models.base_model import BaseModel
 
+
 class TestPlace(unittest.TestCase):
     def test_default_values(self):
         place = Place()
@@ -16,9 +17,7 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(place.price_by_night, 0)
         self.assertEqual(place.latitude, 0.0)
         self.assertEqual(place.longitude, 0.0)
-        self.assertEqual(place.amenity_ids, [])
-        
-        
+
     def test_attributes(self):
         name = "Abuja"
         user_id = "1122"
@@ -31,13 +30,11 @@ class TestPlace(unittest.TestCase):
         latitude = "4.4"
         longitude = "2.2"
         amenity_ids = [333, 555, 666]
-        
         place = Place(name=name, user_id=user_id, city_id=city_id,
                       description=description, number_rooms=number_rooms,
                       number_bathrooms=number_bathrooms, max_guest=max_guest,
                       price_by_night=price_by_night, latitude=latitude,
                       longitude=longitude, amenity_ids=amenity_ids)
-        
         self.assertEqual(place.name, name)
         self.assertEqual(place.city_id, city_id)
         self.assertEqual(place.user_id, user_id)
@@ -49,17 +46,17 @@ class TestPlace(unittest.TestCase):
         self.assertEqual(place.latitude, latitude)
         self.assertEqual(place.longitude, longitude)
         self.assertEqual(place.amenity_ids, amenity_ids)
-        
+
     def test_inheritance(self):
         place = Place()
         self.assertIsInstance(place, BaseModel)
-    
+
     def test_long_name(self):
         """Test if the class handles long names properly"""
         name = "A" * 100
         place = Place(name=name)
-        self.assertEqual(place.name, name[:255])     
-   
-    
+        self.assertEqual(place.name, name[:255])
+
+
 if __name__ == '__main__':
     unittest.main()

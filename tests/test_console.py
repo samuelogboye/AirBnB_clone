@@ -3,6 +3,7 @@ from unittest.mock import patch
 from io import StringIO
 from console import HBNBCommand
 
+
 class TestHBNBCommand(unittest.TestCase):
     def setUp(self):
         self.console = HBNBCommand()
@@ -56,12 +57,12 @@ class TestHBNBCommand(unittest.TestCase):
         expected_output = "** class doesn't exist **\n"
         self.assertEqual(mock_stdout.getvalue(), expected_output)
 
-
     @patch('sys.stdout', new_callable=StringIO)
     def test_update_with_invalid_class_name(self, mock_stdout):
         self.console.onecmd('update InvalidClass 123 name "New Name"')
         expected_output = "** class doesn't exist **\n"
         self.assertEqual(mock_stdout.getvalue(), expected_output)
+
 
 if __name__ == '__main__':
     unittest.main()
