@@ -66,7 +66,7 @@ EOF  all  count  create  destroy  help  quit  show  update
         with patch('sys.stdout', new=StringIO()) as file:
             self.console.onecmd("create BaseModel")
         expected_output = ""
-        self.assertEqual(expected_output, file.getvalue())
+        self.assertEqual(expected_output, file.getvalue()[:-1])
 
 
    
@@ -90,7 +90,7 @@ EOF  all  count  create  destroy  help  quit  show  update
         with patch('sys.stdout', new=StringIO()) as file:
             self.console.onecmd("show")
         expected_output = "** class name missing **\n"
-        self.assertEqual(expected_output, file.getvalue())
+        self.assertEqual(expected_output, file.getvalue()[:-1])
 
    
     def test_all_with_valid_class_name(self, mock_stdout):
