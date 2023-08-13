@@ -143,8 +143,7 @@ class HBNBCommand(cmd.Cmd):
                 storage.all()[key].save()
 
     def do_count(self, line):
-        """Counts the instances of a class.
-        """
+        """Counts the instances of a class."""
         words = line.split(' ')
         if not words[0]:
             print("** class name missing **")
@@ -170,8 +169,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, class_name):
-        # do_create is used to create objects
-        """ Creates a new instance of BaseModel"""
+        """Creates a new instance of BaseModel"""
         if not class_name:
             print("** class name missing **")
             return
@@ -220,9 +218,7 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
 
     def do_all(self, line):
-        """Prints all instances based on the class name or
-        all instances if no class name is provided."""
-
+        """Prints all instances based on the class name"""
         if not line:
             all_instances = [str(obj) for obj in storage.all().values()]
             print(all_instances)
