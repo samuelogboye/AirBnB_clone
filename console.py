@@ -262,7 +262,7 @@ class HBNBCommand(cmd.Cmd):
             return
         try:
             setattr(storage.all()[key_value], strings[2], eval(strings[3]))
-        except ValueError:
+        except (NameError, ValueError):
             setattr(storage.all()[key_value], strings[2], strings[3])
 
 
