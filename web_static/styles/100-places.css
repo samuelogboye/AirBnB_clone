@@ -1,0 +1,113 @@
+.places h1 {
+  font-size: 30px;
+  text-align: left;
+}
+
+.places article {
+  width: 390px;
+  border: 1px solid #ff5a5f;
+  padding: 20px;
+  margin: 20px;
+  display: inline-table;
+}
+
+.places article h2 {
+  font-size: 30px;
+  margin-top: 1px;
+}
+
+.price_by_night {
+  color: #ff5a5f;
+  border: 4px solid #ff5a5f;
+  border-radius: 100%;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  position: relative;
+  float: right;
+  top: -70px;
+}
+
+.information {
+  height: 80px;
+  border-top: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+
+.max_guest,
+.number_rooms,
+.number_bathrooms {
+  line-height: 140px;
+  width: 100px;
+  height: 100%;
+  display: inline-block;
+  background-position: 50% 5px;
+  background-repeat: no-repeat;
+}
+
+.max_guest {
+  background-image: url("../images/guest.png");
+}
+
+.number_rooms {
+  background-image: url("../images/icon_bed.png");
+}
+
+.number_bathrooms {
+  background-image: url("../images/icon_bath.png");
+}
+
+.user,
+.description {
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+/* amenities and reviews */
+.places .amenities,
+.places .reviews {
+  margin-top: 40px;
+  width: 100%;
+  height: inherit;
+}
+
+.places .amenities ul,
+.places .reviews ul {
+  padding: 0;
+}
+.amenities h2,
+.reviews h2 {
+  font-size: 16px;
+  text-align: left;
+  border-bottom: 1px solid #dddddd;
+}
+
+/* icon for amenitites */
+.places_amenities_wifi {
+  background-image: url("../images/icon_wifi.png");
+}
+.places_amenities_tv {
+  background-image: url("../images/icon_tv.png");
+}
+.places_amenities_pet_friendly {
+  background-image: url("../images/icon_pets.png");
+}
+
+.amenities ul li {
+  display: flex;
+  align-content: center;
+  margin-bottom: 10px;
+  align-items: end;
+  text-align: left;
+}
+
+.places_amenities_pet_friendly,
+.places_amenities_tv,
+.places_amenities_wifi {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
