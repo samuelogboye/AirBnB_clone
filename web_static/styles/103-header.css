@@ -95,7 +95,7 @@ ul li span:hover {
   cursor: pointer;
 }
 /* display first level background */
-#main_check:checked ~ * .nav_bar_level1 {
+.nav_bar_level1 {
   display: block;
   margin: 1rem;
   padding: 0.8rem;
@@ -111,9 +111,6 @@ ul li span:hover {
 #third_check:checked + ul {
   display: block;
 }
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-}
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
   header {
@@ -123,7 +120,4 @@ ul li span:hover {
   .mobile_nav {
     display: none;
   }
-}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
 }

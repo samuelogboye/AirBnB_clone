@@ -1,5 +1,3 @@
-/* Extra small devices (phones, 600px and down) */
-/* @media only screen and (max-width: 600px) */
 header {
   z-index: 4;
   color: #fff;
@@ -95,7 +93,6 @@ ul li span:hover {
   flex-direction: column;
   transition: 0.3s ease-in-out;
   width: 50vw;
-  transition: 1s ease-in-out;
 }
 
 /*display second level */
@@ -104,9 +101,6 @@ ul li span:hover {
 }
 #third_check:checked + ul {
   display: block;
-}
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
@@ -117,7 +111,4 @@ ul li span:hover {
   .mobile_nav {
     display: none;
   }
-}
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
 }
